@@ -8,7 +8,7 @@ class ListsContainer extends Component {
     }
   }
   componentDidMount() {
-    axios.get('api/v1/lists.json')
+    axios.get('api/v1/lists')
     .then(response => {
       console.log(response)
       this.setState({
