@@ -23,8 +23,8 @@ class ListsContainer extends Component {
         {this.state.lists.map( list => {
           return (
             <div className="single-list" key={list.id}>
-              <h4>{list.title}</h4>
-              <p>{list.excerpt}</p>
+              <h4>{list.name}</h4>
+              <p>{list.description}</p>
             </div>
           )
         })}
