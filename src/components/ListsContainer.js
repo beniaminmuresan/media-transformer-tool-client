@@ -4,17 +4,17 @@ import List from './List';
 import NewListForm from './NewListForm';
 
 class ListsContainer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       lists: []
     }
     this.addNewList = this.addNewList.bind(this)
   }
+
   componentDidMount() {
     axios.get('api/v1/lists')
     .then(response => {
-      console.log(response)
       this.setState({
         lists: response.data
       })
@@ -25,7 +25,6 @@ class ListsContainer extends Component {
   addNewList(name, description) {
     axios.post( '/api/v1/lists', { list: {name, description} })
     .then(response => {
-      console.log(response)
       const lists = [ ...this.state.lists, response.data ]
       this.setState({lists})
     })

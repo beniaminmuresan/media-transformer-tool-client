@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 const NewListForm = ({onNewList = f => f}) => {
   let name, description
@@ -14,7 +15,9 @@ const NewListForm = ({onNewList = f => f}) => {
     <form onSubmit={submit}>
       <input ref={input => name = input} type="text" placeholder="Name" required />
       <input  ref={input => description = input} type="text" placeholder="Description" required />
-      <button>Add List</button>
+      <Button type="submit" variant="contained" color="primary">
+        Add List
+      </Button>
     </form>
   )
 }
