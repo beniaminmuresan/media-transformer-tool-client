@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import requireAuth from './requireAuth';
 
-class ListsContainer extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <div className="lists-container">
@@ -10,4 +10,4 @@ class ListsContainer extends Component {
     )
   }
 }
-export default requireAuth(ListsContainer);
+export default requireAuth(Dashboard);

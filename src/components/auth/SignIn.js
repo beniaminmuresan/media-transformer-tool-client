@@ -84,7 +84,7 @@ class SignIn extends Component {
 
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
-      this.props.history.push('/lists');
+      this.props.history.push('/dashboard');
     });
   };
 
