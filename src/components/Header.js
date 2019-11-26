@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './HeaderStyle.css';
+import Button from '@material-ui/core/Button';
 
 class Header extends Component {
 
@@ -9,7 +10,7 @@ class Header extends Component {
     if (this.props.authenticated) {
       return(
         <div>
-          <Link to="/signout">Sign Out</Link>
+          <Link to="/signout"><Button variant="contained" color="secondary">Sign Out</Button></Link>
           <Link to="/lists">Lists</Link>
         </div>
       ) 

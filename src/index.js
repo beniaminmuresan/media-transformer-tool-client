@@ -28,7 +28,6 @@ ReactDOM.render(
         <Route path="/signin" component={SignIn} />
         <Route path="/signout" component={SignOut} />
         <Route path="/lists" component={ListsContainer} />
-
       </App>
     </BrowserRouter>
   </Provider>, 
