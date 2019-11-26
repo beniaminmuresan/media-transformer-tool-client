@@ -82,6 +82,12 @@ const styles = theme => ({
 
 class SignIn extends Component {
 
+  componentDidUpdate() {
+    if (this.props.authenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
       this.props.history.push('/dashboard');
@@ -157,7 +163,10 @@ class SignIn extends Component {
 };
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.errorMessage };
+  return { 
+    errorMessage: state.auth.errorMessage,
+    authenticated: state.auth.authenticated
+  };
 }
 
 export default compose(

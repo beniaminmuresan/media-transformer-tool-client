@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
@@ -23,9 +23,9 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route path="/" exact component={SignIn} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/signout" component={SignOut} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/signup" exact component={SignUp} />
+        <Route path="/signout" exact component={SignOut} />
+        <Route path="/dashboard" exact component={Dashboard} />
       </App>
     </BrowserRouter>
   </Provider>,
