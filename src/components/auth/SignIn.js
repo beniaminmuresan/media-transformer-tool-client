@@ -136,12 +136,12 @@ class SignIn extends Component {
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Sign In</Button>
             <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="/forgot-password" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

@@ -7,7 +7,6 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 import App from './components/App';
-import Welcome from './components/Welcome';
 import SignUp from './components/auth/SignUp';
 import ListsContainer from './components/ListsContainer';
 import SignOut from './components/auth/SignOut';
@@ -23,13 +22,12 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App>
-        <Route path="/" exact component={Welcome} />
+        <Route path="/" exact component={SignIn} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/signin" component={SignIn} />
         <Route path="/signout" component={SignOut} />
         <Route path="/lists" component={ListsContainer} />
       </App>
     </BrowserRouter>
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 );
