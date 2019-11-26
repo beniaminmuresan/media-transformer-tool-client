@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './HeaderStyle.css';
+import Button from '@material-ui/core/Button';
 
 class Header extends Component {
 
@@ -9,24 +9,16 @@ class Header extends Component {
     if (this.props.authenticated) {
       return(
         <div>
-          <Link to="/signout">Sign Out</Link>
-          <Link to="/lists">Lists</Link>
+          <Link to="/dashboard">Dashboard</Link>
+          <Button href="signout" variant="contained" color="secondary">Sign Out</Button>
         </div>
       ) 
-    } else {
-      return (
-        <div>
-          <Link to="/signup">Sin Up</Link>
-          <Link to="/signin">Sign In</Link>
-        </div>
-      )
     }
   }
 
   render() {
     return (
       <div className="header">
-        <Link to="/"><img height="20px" width="20px" alt="DoItRight" src="/images/doitright.png" /></Link>
         {this.renderLinks()}
       </div>
     );
