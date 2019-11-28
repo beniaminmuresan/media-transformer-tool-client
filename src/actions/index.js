@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, AUTH_ERROR, PASSWORD_RECOVER_ERROR, PASSWORD_RECOVER_USER } from './types';
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
@@ -33,3 +33,13 @@ export const signout = () => {
     payload: ''
   };
 }; 
+
+export const recoverpassword = (email) => async dispatch => {
+  try {
+    const response = await axios.post('v1/users/recover_password', email);
+    dispatch({ type: PASSWORD_RECOVER_USER, payload: response.data.message });
+  } catch (e) {
+    const errorMessage = e.response.data.error;
+    dispatch({ type: PASSWORD_RECOVER_ERROR, payload: errorMessage });
+  }
+}
