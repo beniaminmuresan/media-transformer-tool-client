@@ -1,2 +1,1 @@
-DoItRight project
-Still in development
+Media Transformer Tool Client
