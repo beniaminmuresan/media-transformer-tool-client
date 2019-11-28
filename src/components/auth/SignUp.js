@@ -8,8 +8,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -47,8 +45,13 @@ const styles = theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  textCenter: {
-    textAlign: "center"
+  redText: {
+    textAlign: "center",
+    color: 'red',
+    marginTop: 20
+  },
+  centeredText: {
+    textAlign: "center !important"
   }
 });
 
@@ -103,6 +106,7 @@ class SignUp extends Component {
           <Typography component="h1" variant="h5" className="styles.title">
             Transform
           </Typography>
+          <div className={classes.redText}> {this.props.errorMessage} </div>
 
           <form className={classes.form} onSubmit={handleSubmit(this.onSubmit)}>
             <Field
@@ -139,46 +143,21 @@ class SignUp extends Component {
               fullWidth
               id="password"
             />
-            <div> {this.props.errorMessage} </div>
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Sign Up</Button>
-            <Grid container>
-              <Grid item>
-                <Link href="/" variant="body2">
-                  {"Already have an account? Sign In"}
-                </Link>
-              </Grid>
-            </Grid>
+            <div className={classes.centeredText}>
+              <Link href="/" variant="body2">
+                {"Already have an account? Sign In"}
+              </Link>
+            </div>
           </form>
         </div>
         <Box mt={8}>
           <Copyright />
         </Box>
       </Container>
-      // <form onSubmit={handleSubmit(this.onSubmit)}>
-      //   <fieldset>
-      //     <label>Email</label>
-      //     <Field
-      //       name="email"
-      //       type="text"
-      //       component="input"
-      //       autoComplete="none"
-      //     />
-      //   </fieldset>
-      //   <fieldset>
-      //     <label>Password</label>
-      //     <Field
-      //       name="password"
-      //       type="password"
-      //       component="input"
-      //       autoComplete="none"
-      //     />
-      //   </fieldset>
-      //   <div> {this.props.errorMessage} </div>
-      //   <button>Sign Up!</button>
-      // </form>
     );
   }
-}; 
+};
 
 function mapStateToProps(state) {
   return { errorMessage: state.auth.errorMessage };
