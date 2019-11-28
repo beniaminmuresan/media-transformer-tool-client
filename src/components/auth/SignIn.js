@@ -21,7 +21,7 @@ import Container from '@material-ui/core/Container';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © DoItRight '}
+      {'Copyright © Transform '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -103,10 +103,10 @@ class SignIn extends Component {
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
-            <img height="60px" width="60px" alt="DoItRight" src="/images/doitright.png" />
+            <img height="60px" width="60px" alt="Transform" src="/images/transform_logo.png" />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Transform
           </Typography>
 
           <form className={classes.form} onSubmit={handleSubmit(this.onSubmit)}>
