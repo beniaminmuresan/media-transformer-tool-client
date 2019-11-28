@@ -75,6 +75,11 @@ const styles = theme => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
+  redText: {
+    textAlign: "center",
+    color: 'red',
+    marginTop: 20
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -108,7 +113,7 @@ class SignIn extends Component {
           <Typography component="h1" variant="h5">
             Transform
           </Typography>
-
+          <div className={classes.redText}> {this.props.errorMessage} </div>
           <form className={classes.form} onSubmit={handleSubmit(this.onSubmit)}>
               <Field 
                 name="email"
@@ -138,11 +143,10 @@ class SignIn extends Component {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-            <div> {this.props.errorMessage} </div>
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Sign In</Button>
             <Grid container>
             <Grid item xs>
-              <Link href="/forgot-password" variant="body2">
+              <Link href="/recovery" variant="body2">
                 Forgot password?
               </Link>
             </Grid>

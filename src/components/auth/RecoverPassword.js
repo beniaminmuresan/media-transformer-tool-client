@@ -74,6 +74,11 @@ const styles = theme => ({
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
+  redText: {
+    textAlign: "center",
+    color: 'red',
+    marginTop: 20
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -98,7 +103,7 @@ class RecoverPassword extends Component {
           <Typography component="h1" variant="h5">
             Recover your password!
           </Typography>
-          <div> {this.props.errorRecoveryMessage} </div>
+          <div className={classes.redText}> {this.props.errorRecoveryMessage} </div>
           <form className={classes.form} onSubmit={handleSubmit(this.onSubmit)}>
             <Field
               name="email"

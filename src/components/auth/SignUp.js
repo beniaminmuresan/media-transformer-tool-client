@@ -50,7 +50,7 @@ const styles = theme => ({
     marginTop: 20
   },
   centeredText: {
-    textAlign: "center !important"
+    textAlign: "center"
   }
 });
 
@@ -121,7 +121,7 @@ class SignUp extends Component {
               autoFocus
             />
             <Field
-              name="fullName"
+              name="full_name"
               type="text"
               label="Full Name"
               component={renderTextField}
