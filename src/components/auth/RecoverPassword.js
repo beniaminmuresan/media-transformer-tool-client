@@ -8,10 +8,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -79,9 +76,17 @@ const styles = theme => ({
     color: 'red',
     marginTop: 20
   },
+  greenText: {
+    textAlign: "center",
+    color: 'green',
+    marginTop: 20
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  centeredText: {
+    textAlign: "center"
+  }
 });
 
 class RecoverPassword extends Component {
@@ -103,6 +108,7 @@ class RecoverPassword extends Component {
           <Typography component="h1" variant="h5">
             Recover your password!
           </Typography>
+          <div className={classes.greenText}> {this.props.successRecoveryMessage} </div>
           <div className={classes.redText}> {this.props.errorRecoveryMessage} </div>
           <form className={classes.form} onSubmit={handleSubmit(this.onSubmit)}>
             <Field
@@ -118,6 +124,11 @@ class RecoverPassword extends Component {
               autoFocus
             />
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Recover</Button>
+            <div className={classes.centeredText}>
+              <Link href="/" variant="body2">
+                {"Received the email with the new password? Sign In"}
+              </Link>
+            </div>
           </form>
         </div>
         <Box mt={8}>
