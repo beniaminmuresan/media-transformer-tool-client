@@ -11,6 +11,7 @@ import SignUp from './components/auth/SignUp';
 import Dashboard from './components/Dashboard';
 import SignOut from './components/auth/SignOut';
 import SignIn from './components/auth/SignIn';
+import RecoverPassword from './components/auth/RecoverPassword';
 
 const store = createStore(
   reducers, {
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path="/signup" exact component={SignUp} />
         <Route path="/signout" exact component={SignOut} />
         <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/recovery" exact component={RecoverPassword} />
       </App>
     </BrowserRouter>
   </Provider>,
