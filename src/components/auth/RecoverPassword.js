@@ -91,7 +91,9 @@ const styles = theme => ({
 
 class RecoverPassword extends Component {
   onSubmit = formProps => {
-    this.props.recoverpassword(formProps);
+    this.props.recoverpassword(formProps, () => {
+      this.props.history.push('/');
+    });
   };
 
   render() {
@@ -150,4 +152,3 @@ export default compose(
   reduxForm({ form: 'recoverpassword' }),
   withStyles(styles)
 )(RecoverPassword);
-

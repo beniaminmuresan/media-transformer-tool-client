@@ -32,9 +32,9 @@ export const signout = () => {
     type: AUTH_USER,
     payload: ''
   };
-}; 
+};
 
-export const recoverpassword = (email) => async dispatch => {
+export const recoverpassword = email => async dispatch => {
   try {
     const response = await axios.post('v1/users/recover_password', email);
     dispatch({ type: PASSWORD_RECOVER_USER, payload: response.data.message });
