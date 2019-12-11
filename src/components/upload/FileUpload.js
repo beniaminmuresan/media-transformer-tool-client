@@ -16,7 +16,13 @@ const styles = theme => ({
     margin: theme.spacing(3, 0, 2),
   },
   uploadContent: {
-    with: '100%',
+    width: '100%',
+    textAlign: "center",
+    position: 'relative',
+    display: "inline"
+  },
+  uploadPreview: {
+    width: '100%',
     textAlign: "center",
     position: 'relative',
     display: "inline"
@@ -53,31 +59,33 @@ const renderTextField = ({
     />
   )
 
+const FileInput = ({ 
+  input: { value: omitValue, onChange, onBlur }, 
+  meta: omitMeta,
+  variant,
+  ...props 
+}) => {
+  return (
+    <TextField
+      onChange={adaptFileEventToValue(onChange)}
+      onBlur={adaptFileEventToValue(onBlur)}
+      type="file"
+      variant={variant}
+      {...props.input}
+      {...props}
+    />
+  );
+};
+
+const adaptFileEventToValue = delegate => e => {
+  delegate(e.target.files[0]);
+}
+
 class FileUpload extends Component {
 
   render() {
     const { handleSubmit } = this.props;
     const { classes } = this.props;
-  
-    const adaptFileEventToValue = delegate => e => {
-      delegate(e.target.files[0]);
-    }
-  
-    const FileInput = ({ 
-      input: { value: omitValue, onChange, onBlur }, 
-      meta: omitMeta, 
-      ...props 
-    }) => {
-      return (
-        <TextField
-          onChange={adaptFileEventToValue(onChange)}
-          onBlur={adaptFileEventToValue(onBlur)}
-          type="file"
-          {...props.input}
-          {...props}
-        />
-      );
-    };
   
     const onFormSubmit = data => {
       this.props.uploadfile(data);
@@ -99,10 +107,10 @@ class FileUpload extends Component {
           required
         />
         <div className={classes.uploadContent}>
-          <Field name="attachment" component={FileInput} type="file"/>
+          <Field name="attachment" variant="outlined" component={FileInput} type="file"/>
         </div>
-        <Button className={classes.uploadContent} variant="contained" color="primary" type="submit"> Submit </Button>
-        <p>{this.props.fileUrl}</p>
+        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Upload</Button>
+        <p><img src={this.props.fileUrl} className={classes.uploadPreview}></img></p>
       </form>
     )
   }
