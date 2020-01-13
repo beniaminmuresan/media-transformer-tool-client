@@ -3,7 +3,7 @@ import requireAuth from "../../components/requireAuth";
 
 import HistoryList from "../../components/history-list/history-list.component";
 import FileUpload from "../../components/upload/FileUpload";
-import UploadModal from "../../components/upload-modal/UploadModal";
+import WelcomeCard from "../../components/welcome-card/WelcomeCard";
 
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -24,6 +24,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
 const drawerWidth = 240;
 
@@ -49,31 +50,11 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: 36
   },
+  signoutButton: {
+    paddingRight: 0
+  },
   hide: {
     display: "none"
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: "nowrap"
-  },
-  drawerOpen: {
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  drawerClose: {
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    overflowX: "hidden",
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9) + 1
-    }
   },
   toolbar: {
     display: "flex",
@@ -111,19 +92,28 @@ function Dashboard() {
         })}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap>
-            Transform
-          </Typography>
+          <Typography variant="h6">Transform</Typography>
+          <Grid
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="center"
+          >
+            <Button
+              className={useStyles.signoutButton}
+              href="signout"
+              variant="contained"
+              color="secondary"
+            >
+              Sign Out
+            </Button>
+          </Grid>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Button href="signout" variant="contained" color="secondary">
-          Sign Out
-        </Button>
-        <UploadModal />
-        <FileUpload />
-        <HistoryList />
+
+        <WelcomeCard />
       </main>
     </div>
   );
