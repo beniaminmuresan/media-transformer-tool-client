@@ -79,7 +79,6 @@ export const texttospeech = formProps => async dispatch => {
       }
     }
     const response = await axios.post('/v1/text_to_speech', formProps, config);
-    debugger;
     dispatch({ type: TEXT_TO_SPEECH_URL, payload: response.data.audio_file_url });
   } catch (e) {
     const errorMessage = e.response.data.errors.join(', ');
