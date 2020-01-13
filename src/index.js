@@ -12,7 +12,7 @@ import Dashboard from './pages/dashboard/dashboard.component';
 import SignOut from './components/auth/SignOut';
 import SignIn from './components/auth/SignIn';
 import RecoverPassword from './components/auth/RecoverPassword';
-
+import HistoryList from './components/history-list/history-list.component';
 const store = createStore(
   reducers, {
     auth: { authenticated: localStorage.getItem('token') }
@@ -28,6 +28,8 @@ ReactDOM.render(
         <Route path="/signout" exact component={SignOut} />
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/recovery" exact component={RecoverPassword} />
+        <Route path="/home" exact component={Dashboard} />
+        <Route path="/history" exact component={HistoryList} />
       </App>
     </BrowserRouter>
   </Provider>,

@@ -12,4 +12,4 @@ const HistoryList = () => (
   </div>
 )
 
-export default HistoryList
+export default HistoryList;

@@ -94,6 +94,8 @@ const Dashboard = props => {
             justify="flex-end"
             alignItems="center"
           >
+          <Button href="dashboard" variant="contained">Home</Button>
+          <Button href="history" variant="contained">History</Button>
             <IconButton
               className={classes.signoutButton}
               href="signout"
