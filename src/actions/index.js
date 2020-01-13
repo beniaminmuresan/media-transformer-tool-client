@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { AUTH_USER, AUTH_ERROR, PASSWORD_RECOVER_ERROR, PASSWORD_RECOVER_USER } from './types';
 import { UPLOAD_FILE, UPLOAD_FILE_ERROR } from './types';
+import {TEXT_TO_SPEECH_URL, TEXT_TO_SPEECH_ERROR } from './types';
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
@@ -68,3 +69,19 @@ export const uploadfile = data => async dispatch => {
     dispatch({ type: UPLOAD_FILE_ERROR, payload: errorMessage });
   }
 }
+
+export const texttospeech = formProps => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
+    }
+    const response = await axios.post('/v1/text_to_speech', formProps, config);
+    dispatch({ type: TEXT_TO_SPEECH_URL, payload: response.data.audio_file_url });
+  } catch (e) {
+    const errorMessage = e.response.data.errors.join(', ');
+    dispatch({ type: TEXT_TO_SPEECH_ERROR, payload: errorMessage })
+  }
+};
