@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 
-import UploadModal from "../upload-modal/UploadModal";
+import TextToSpeechModal from "../text-to-speech-modal/TextToSpeechModal";
 
 const useStyles = makeStyles({
   card: {
@@ -43,7 +43,7 @@ export default function SimpleCard() {
             />
           </CardContent>
           <CardActions>
-            <UploadModal />
+            <TextToSpeechModal />
           </CardActions>
         </Grid>
       </div>
