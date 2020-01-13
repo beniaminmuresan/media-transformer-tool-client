@@ -26,7 +26,7 @@ export default function AlertDialogSlide() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
         GET STARTED
       </Button>
       <Dialog

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import requireAuth from "../../components/requireAuth";
-
+import { compose } from "redux";
+import { connect } from "react-redux";
 import HistoryList from "../../components/history-list/history-list.component";
 import FileUpload from "../../components/upload/FileUpload";
 import WelcomeCard from "../../components/welcome-card/WelcomeCard";
 
+import ExitToApp from "@material-ui/icons/ExitToApp";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -47,11 +49,15 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen
     })
   },
+  title: {
+    padding: "15px"
+  },
   menuButton: {
     marginRight: 36
   },
   signoutButton: {
-    paddingRight: 0
+    paddingRight: 0,
+    color: "#FFFFFF"
   },
   hide: {
     display: "none"
@@ -69,54 +75,45 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Dashboard() {
+const Dashboard = props => {
+  console.log(props);
   const classes = useStyles();
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
-        })}
-      >
+      <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="h6">Transform</Typography>
+          <Typography variant="h6" className={classes.title}>
+            Transform
+          </Typography>
           <Grid
             container
             direction="row"
             justify="flex-end"
             alignItems="center"
           >
-            <Button
-              className={useStyles.signoutButton}
+            <IconButton
+              className={classes.signoutButton}
               href="signout"
               variant="contained"
-              color="secondary"
             >
-              Sign Out
-            </Button>
+              <ExitToApp />
+            </IconButton>
           </Grid>
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-
         <WelcomeCard />
       </main>
     </div>
   );
+};
+
+function mapStateToProps(state) {
+  return { user: state.auth.user };
 }
 
-export default requireAuth(Dashboard);
+export default compose(connect(mapStateToProps), requireAuth)(Dashboard);

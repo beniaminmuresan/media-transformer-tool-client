@@ -21,9 +21,13 @@ const useStyles = makeStyles({
     marginRight: "auto"
   },
   welcomeImage: {
-    width: "30%"
-
-    // marginRight: "auto"
+    width: "60%",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderRadius: "15%",
+    marginBottom: "80px",
+    marginTop: "20px"
   }
 });
 
@@ -35,12 +39,17 @@ export default function SimpleCard() {
       <div className={classes.centeredContent}>
         <Grid container direction="row" justify="center" alignItems="center">
           <CardContent>
-            <Typography variant="h3">Welcome, Darius Otelea!</Typography>
             <img
-              src="https://images.unsplash.com/photo-1522051311534-1f53d56b49df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2988&q=80"
+              src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
               className={classes.welcomeImage}
               alt="welcome"
             />
+            <Typography variant="h6">
+              Transform is the tool that you need for making your life easier.
+              You are stuck in traffic, or maybe you are busy doing other things
+              and you can't read all the messages that you have. Transform does
+              the job for you.
+            </Typography>
           </CardContent>
           <CardActions>
             <UploadModal />
