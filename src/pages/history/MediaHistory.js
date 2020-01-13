@@ -3,8 +3,6 @@ import requireAuth from "../../components/requireAuth";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import HistoryList from "../../components/history-list/history-list.component";
-import FileUpload from "../../components/upload/FileUpload";
-import WelcomeCard from "../../components/welcome-card/WelcomeCard";
 
 import ExitToApp from "@material-ui/icons/ExitToApp";
 import clsx from "clsx";
@@ -75,7 +73,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Dashboard = props => {
+const MediaHistory = props => {
   console.log(props);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -112,7 +110,7 @@ const Dashboard = props => {
       </AppBar>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <WelcomeCard />
+        <HistoryList />
       </main>
     </div>
   );
@@ -122,4 +120,4 @@ function mapStateToProps(state) {
   return { user: state.auth.user };
 }
 
-export default compose(connect(mapStateToProps), requireAuth)(Dashboard);
+export default compose(connect(mapStateToProps), requireAuth)(MediaHistory);

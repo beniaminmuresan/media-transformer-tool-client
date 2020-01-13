@@ -1,22 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reduxThunk from 'redux-thunk';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
 
-import reducers from './reducers';
-import App from './components/App';
-import SignUp from './components/auth/SignUp';
-import Dashboard from './pages/dashboard/dashboard.component';
-import SignOut from './components/auth/SignOut';
-import SignIn from './components/auth/SignIn';
-import RecoverPassword from './components/auth/RecoverPassword';
-import HistoryList from './components/history-list/history-list.component';
+import reducers from "./reducers";
+import App from "./components/App";
+import SignUp from "./components/auth/SignUp";
+import Dashboard from "./pages/dashboard/dashboard.component";
+import SignOut from "./components/auth/SignOut";
+import SignIn from "./components/auth/SignIn";
+import RecoverPassword from "./components/auth/RecoverPassword";
+import HistoryList from "./pages/history/MediaHistory";
 const store = createStore(
-  reducers, {
-    auth: { authenticated: localStorage.getItem('token') }
-  }, applyMiddleware(reduxThunk)
+  reducers,
+  {
+    auth: { authenticated: localStorage.getItem("token") }
+  },
+  applyMiddleware(reduxThunk)
 );
 
 ReactDOM.render(
@@ -33,5 +35,5 @@ ReactDOM.render(
       </App>
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
