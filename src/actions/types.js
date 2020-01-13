@@ -6,3 +6,5 @@ export const UPLOAD_FILE = 'upload_file';
 export const UPLOAD_FILE_ERROR = 'upload_file_error';
 export const TEXT_TO_SPEECH_URL = 'text_to_speech_url';
 export const TEXT_TO_SPEECH_ERROR = 'text_to_speech_error';
+export const HISTORY = 'history';
+export const HISTORY_ERROR = 'history_error';
