@@ -28,9 +28,9 @@ ReactDOM.render(
         <Route path="/" exact component={SignIn} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/signout" exact component={SignOut} />
-        <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/home" component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/recovery" exact component={RecoverPassword} />
-        <Route path="/home" exact component={Dashboard} />
         <Route path="/history" exact component={HistoryList} />
       </App>
     </BrowserRouter>

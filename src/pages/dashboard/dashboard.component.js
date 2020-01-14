@@ -62,9 +62,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = props => {
-  console.log(props);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
   return (
     <div className={classes.root}>

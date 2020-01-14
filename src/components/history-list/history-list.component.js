@@ -9,26 +9,22 @@ import "./history-list.style.scss";
 
 class HistoryList extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.gethistory();
   }
 
   render() {
-    console.log(this.props.historyList)
-    
     return (
       <div className="history-list">
         <Typography style={{ marginLeft: "16%" }} variant="h4">
           History
         </Typography>
-        <HistoryEntry />
-        <HistoryEntry />
-        <HistoryEntry />
-        <HistoryEntry />
+        {this.props.historyList.map((history, index) => {     
+          return <HistoryEntry key={index} historyProps={history}/> 
+        })}
       </div>
     )
   }
-
 };
 
 

@@ -20,6 +20,8 @@ const renderTextField = ({
   name,
   autoComplete,
   autoFocus,
+  multiline,
+  rowsMax,
   input,
   ...custom
 }) => (
@@ -32,6 +34,8 @@ const renderTextField = ({
     fullWidth={fullWidth}
     id={id}
     name={name}
+    rowsMax={rowsMax}
+    multiline={multiline}
     autoComplete={autoComplete}
     autoFocus={autoFocus}
     {...input}
@@ -82,24 +86,27 @@ class TextToSpeech extends Component {
             <Field 
               name="file_name"
               type="text"
-              label="File Name"
+              label="Name of the File"
               component={renderTextField}
               autoComplete="none"
               variant="outlined"
               margin="normal"
               fullWidth
               id="file_name"
+              required
             />
             <Field 
               name="text"
-              type="text"
               label="Text"
               component={renderTextField}
               autoComplete="none"
               variant="outlined"
               margin="normal"
+              multiline
+              rows="7"
               fullWidth
               id="text"
+              required
             />
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Transform</Button>
         </form>

@@ -1,7 +1,7 @@
 import { HISTORY, HISTORY_ERROR } from '../actions/types';
 
 const INITIAL_STATE = {
-  historyList: {},
+  historyList: [],
   errorMessage: ''
 }
 

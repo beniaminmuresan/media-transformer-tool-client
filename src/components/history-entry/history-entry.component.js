@@ -1,24 +1,15 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { Component } from "react";
+import { withStyles } from '@material-ui/core/styles';
 import CloudDownload from "@material-ui/icons/CloudDownload";
-
-import clsx from "clsx";
+import { compose } from 'redux';
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   card: {
     width: "70%",
     height: 250,
@@ -44,43 +35,37 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: "#5353f9"
   }
-}));
+});
 
-const HistoryEntry = () => {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  return (
-    <Card className={classes.card}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}></Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <CloudDownload style={{ fontSize: 40 }} />
-          </IconButton>
-        }
-        title="File Name"
-        subheader="September 14, 2019"
-      ></CardHeader>
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like. This impressive paella is a perfect party dish
-          and a fun meal to cook together with your guests. Add 1 cup of frozen
-          peas along with the mussels, if you like. This impressive paella is a
-          perfect party dish and a fun meal to cook together with your guests.
-          Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default HistoryEntry;
+class HistoryEntry extends Component {
+  render() {
+    const { classes } = this.props;
+    const historyProps = this.props.historyProps;
+    return (
+      <Card className={classes.card}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}></Avatar>
+          }
+          action={
+            <a href={historyProps.download_link}>
+              <IconButton aria-label="settings">
+                <CloudDownload style={{ fontSize: 40 }} />
+              </IconButton>
+            </a>
+          }
+          title={historyProps.filename}
+          subheader={historyProps.date}
+        ></CardHeader>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {historyProps.text}
+          </Typography>
+        </CardContent>
+      </Card>
+    );
+  }
+}
+export default compose(
+  withStyles(styles)
+)(HistoryEntry);
