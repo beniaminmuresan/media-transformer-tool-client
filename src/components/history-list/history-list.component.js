@@ -9,12 +9,13 @@ import "./history-list.style.scss";
 
 class HistoryList extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.gethistory();
   }
 
   render() {
-    console.log(this.props.history)
+    console.log(this.props.historyList)
+    
     return (
       <div className="history-list">
         <Typography style={{ marginLeft: "16%" }} variant="h4">
@@ -34,7 +35,7 @@ class HistoryList extends Component {
 function mapStateToProps(state) {
   return { 
     errorMessage: state.history.errorMessage,
-    history: state.history.history
+    historyList: state.history.historyList
   };
 }
 

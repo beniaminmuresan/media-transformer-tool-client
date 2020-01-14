@@ -1,14 +1,14 @@
 import { HISTORY, HISTORY_ERROR } from '../actions/types';
 
 const INITIAL_STATE = {
-  history: {},
+  historyList: {},
   errorMessage: ''
 }
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case HISTORY:
-      return { ...state, history: action.payload }
+      return { ...state, historyList: action.payload }
     case HISTORY_ERROR:
       return { ...state, errorMessage: action.payload }
     default:

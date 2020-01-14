@@ -1,30 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import requireAuth from "../../components/requireAuth";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import HistoryList from "../../components/history-list/history-list.component";
-import FileUpload from "../../components/upload/FileUpload";
 import WelcomeCard from "../../components/welcome-card/WelcomeCard";
 
 import ExitToApp from "@material-ui/icons/ExitToApp";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
