@@ -7,6 +7,7 @@ import * as actions from '../../actions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
 import Container from '@material-ui/core/Container';
 
 const renderTextField = ({
@@ -79,7 +80,10 @@ class TextToSpeech extends Component {
   render() {
     const { handleSubmit } = this.props;
     const { classes } = this.props;
-
+    let downloadLink = '';
+    if (this.props.textToSpeechUrl) {
+      downloadLink = <Link href={this.props.textToSpeechUrl} variant="body2">{"Download Audio File"} </Link>
+    }
     return (
       <Container component="main" maxWidth="xs">
         <form className={classes.form} onSubmit={handleSubmit(this.onSubmit)}>
@@ -110,7 +114,7 @@ class TextToSpeech extends Component {
             />
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>Transform</Button>
         </form>
-        <p>{this.props.textToSpeechUrl}</p>
+        {downloadLink}
       </Container>
     );
   }
